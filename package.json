@@ -9,10 +9,11 @@
     "build": "vue-tsc && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "up": "taze major -I"
   },
   "dependencies": {
-    "vue": "^3.4.21"
+    "vue": "^3.4.27"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^2.18.1",
@@ -20,8 +21,9 @@
     "eslint": "^9.3.0",
     "eslint-plugin-format": "^0.1.1",
     "pnpm": "^9.1.2",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0",
-    "vue-tsc": "^2.0.6"
+    "taze": "^0.13.8",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.11",
+    "vue-tsc": "^2.0.19"
   }
 }
