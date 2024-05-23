@@ -37,6 +37,9 @@ devDependencies:
   '@types/lodash-es':
     specifier: ^4.17.12
     version: 4.17.12
+  '@types/node':
+    specifier: ^20.12.12
+    version: 20.12.12
   '@unocss/eslint-config':
     specifier: ^0.60.3
     version: 0.60.3(eslint@9.3.0)(typescript@5.4.5)
@@ -75,7 +78,7 @@ devDependencies:
     version: 0.8.8(vue-router@4.3.2)(vue@3.4.27)
   vite:
     specifier: ^5.2.11
-    version: 5.2.11
+    version: 5.2.11(@types/node@20.12.12)
   vite-plugin-vue-devtools:
     specifier: ^7.2.1
     version: 7.2.1(vite@5.2.11)(vue@3.4.27)
@@ -1215,6 +1218,12 @@ packages:
       '@types/unist': 2.0.10
     dev: true
 
+  /@types/node@20.12.12:
+    resolution: {integrity: sha512-eWLDGF/FOSPtAvEqeRAQ4C8LSA7M1I7i0ky1I8U7kD1J5ITyW3AsRhQrKVoWf5pFKZ2kILsEGJhsI9r93PYnOw==}
+    dependencies:
+      undici-types: 5.26.5
+    dev: true
+
   /@types/normalize-package-data@2.4.4:
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
     dev: true
@@ -1364,7 +1373,7 @@ packages:
       '@unocss/core': 0.60.3
       '@unocss/reset': 0.60.3
       '@unocss/vite': 0.60.3(vite@5.2.11)
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1587,7 +1596,7 @@ packages:
       chokidar: 3.6.0
       fast-glob: 3.3.2
       magic-string: 0.30.10
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     transitivePeerDependencies:
       - rollup
     dev: true
@@ -1602,7 +1611,7 @@ packages:
       '@babel/core': 7.24.5
       '@babel/plugin-transform-typescript': 7.24.5(@babel/core@7.24.5)
       '@vue/babel-plugin-jsx': 1.2.2(@babel/core@7.24.5)
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
       vue: 3.4.27(typescript@5.4.5)
     transitivePeerDependencies:
       - supports-color
@@ -1615,7 +1624,7 @@ packages:
       vite: ^5.0.0
       vue: ^3.2.25
     dependencies:
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
       vue: 3.4.27(typescript@5.4.5)
     dev: true
 
@@ -4222,6 +4231,10 @@ packages:
       jiti: 1.21.0
     dev: true
 
+  /undici-types@5.26.5:
+    resolution: {integrity: sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==}
+    dev: true
+
   /unicorn-magic@0.1.0:
     resolution: {integrity: sha512-lRfVq8fE8gz6QMBuDM6a+LO3IAzTi05H6gCVaUpir2E1Rwpo4ZUog45KpNXKC/Mn3Yb9UDuHumeFTo9iV/D9FQ==}
     engines: {node: '>=18'}
@@ -4290,7 +4303,7 @@ packages:
       '@unocss/transformer-directives': 0.60.3
       '@unocss/transformer-variant-group': 0.60.3
       '@unocss/vite': 0.60.3(vite@5.2.11)
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     transitivePeerDependencies:
       - postcss
       - rollup
@@ -4421,7 +4434,7 @@ packages:
     peerDependencies:
       vite: ^2.6.0 || ^3.0.0 || ^4.0.0 || ^5.0.0-0
     dependencies:
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     dev: true
 
   /vite-plugin-inspect@0.8.4(vite@5.2.11):
@@ -4443,7 +4456,7 @@ packages:
       perfect-debounce: 1.0.0
       picocolors: 1.0.1
       sirv: 2.0.4
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     transitivePeerDependencies:
       - rollup
       - supports-color
@@ -4460,7 +4473,7 @@ packages:
       '@vue/devtools-shared': 7.2.1
       execa: 8.0.1
       sirv: 2.0.4
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
       vite-plugin-inspect: 0.8.4(vite@5.2.11)
       vite-plugin-vue-inspector: 5.1.1(vite@5.2.11)
     transitivePeerDependencies:
@@ -4484,7 +4497,7 @@ packages:
       '@vue/compiler-dom': 3.4.27
       kolorist: 1.8.0
       magic-string: 0.30.10
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -4498,14 +4511,14 @@ packages:
     dependencies:
       debug: 4.3.4
       fast-glob: 3.3.2
-      vite: 5.2.11
+      vite: 5.2.11(@types/node@20.12.12)
       vue: 3.4.27(typescript@5.4.5)
       vue-router: 4.3.2(vue@3.4.27)
     transitivePeerDependencies:
       - supports-color
     dev: true
 
-  /vite@5.2.11:
+  /vite@5.2.11(@types/node@20.12.12):
     resolution: {integrity: sha512-HndV31LWW05i1BLPMUCE1B9E9GFbOu1MbenhS58FuK6owSO5qHm7GiCotrNY1YE5rMeQSFBGmT5ZaLEjFizgiQ==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4533,6 +4546,7 @@ packages:
       terser:
         optional: true
     dependencies:
+      '@types/node': 20.12.12
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.18.0

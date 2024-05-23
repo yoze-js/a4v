@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import VueJsx from '@vitejs/plugin-vue-jsx'
@@ -29,6 +30,12 @@ export default defineConfig({
     Unocss(),
 
     AutoImport({
+      dirs: [
+        'src/composables/**',
+        'src/stores/**',
+        'src/utils/**',
+      ],
+      dts: 'types/auto-imports.d.ts',
       imports: [
         'vue',
         '@vueuse/core',
@@ -38,13 +45,16 @@ export default defineConfig({
           'vue-router/auto': ['useLink'],
         },
       ],
-      dirs: [
-        'src/composables/**',
-        'src/stores/**',
-        'src/utils/**',
-      ],
     }),
 
-    Components(),
+    Components({
+      dts: 'types/components.d.ts',
+    }),
   ],
+
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
+  },
 })
