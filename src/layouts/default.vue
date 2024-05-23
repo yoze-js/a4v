@@ -7,15 +7,34 @@ function go(path: string) {
 </script>
 
 <template>
-  <div class="h-100vh w-full flex-center flex-col">
-    <RouterView />
-    <NFlex class="mt-16px">
-      <NButton @click="go('/')">
-        首页
-      </NButton>
-      <NButton @click="go('/about')">
-        关于
-      </NButton>
-    </NFlex>
-  </div>
+  <YLayout class="!h-100vh">
+    <template #sider>
+      <div class="wh-full flex-center">
+        <NFlex vertical>
+          <NButton @click="go('/')">
+            首页
+          </NButton>
+          <NButton @click="go('/about')">
+            关于
+          </NButton>
+        </NFlex>
+      </div>
+    </template>
+
+    <template #header>
+      <div class="wh-full flex-center">
+        header
+      </div>
+    </template>
+
+    <div class="wh-full flex flex-col overflow-hidden rd-bl-12px rd-tl-12px bg-#f3f3f5 dark:bg-#101014">
+      <RouterView />
+    </div>
+
+    <template #footer>
+      <div class="wh-full flex-center">
+        Copyright © 2024-present Yoze
+      </div>
+    </template>
+  </YLayout>
 </template>

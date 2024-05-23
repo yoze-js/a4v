@@ -3,7 +3,7 @@ const title = 'About Yoze...'
 </script>
 
 <template>
-  <div>
+  <div class="p-24px">
     <NP>{{ title }}</NP>
   </div>
 </template>
