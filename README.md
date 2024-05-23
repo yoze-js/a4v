@@ -13,7 +13,7 @@ a4v
 - NaiveUI 组件自动加载
 - 函数自动加载
 - VueUse 无需引入直接使用
-- 基文件的路由
+- 基于文件的路由
 - 布局系统
 - 使用 Pinia 状态管理
 - UnoCSS 原子化 CSS 引擎
@@ -38,7 +38,7 @@ a4v
 - unplugin-auto-import - 自动导入插件
 - unplugin-vue-components - 自动导入组件
 - vite-plugin-vue-devtools - 旨在增强 Vue 开发者体验的 Vite 插件
-- Pinia - 直接的, 类型安全的, 使用 Composition API 的轻便灵活的 Vue 状态管理
+- Pinia - 使用 Composition API 的轻便灵活的 Vue 状态管理
 - VueUse - 实用的 Composition API 工具合集
 
 ## 使用
