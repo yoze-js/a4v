@@ -27,13 +27,19 @@
     "@types/lodash-es": "^4.17.12",
     "@unocss/eslint-config": "^0.60.3",
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
     "eslint": "^9.3.0",
     "eslint-plugin-format": "^0.1.1",
     "pnpm": "^9.1.2",
     "taze": "^0.13.8",
     "typescript": "^5.4.5",
     "unocss": "^0.60.3",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
+    "unplugin-vue-router": "^0.8.8",
     "vite": "^5.2.11",
+    "vite-plugin-vue-devtools": "^7.2.1",
+    "vite-plugin-vue-layouts": "^0.11.0",
     "vue-tsc": "^2.0.19"
   }
 }
