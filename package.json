@@ -1,19 +1,24 @@
 {
   "name": "a4v",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "packageManager": "pnpm@9.1.2",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "preview": "vite preview"
   },
   "dependencies": {
     "vue": "^3.4.21"
   },
   "devDependencies": {
+    "@antfu/eslint-config": "^2.18.1",
     "@vitejs/plugin-vue": "^5.0.4",
+    "eslint": "^9.3.0",
+    "eslint-plugin-format": "^0.1.1",
     "pnpm": "^9.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
