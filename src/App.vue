@@ -1,3 +1,5 @@
 <template>
-  <RouterView />
+  <YConfigProvider>
+    <RouterView />
+  </YConfigProvider>
 </template>
