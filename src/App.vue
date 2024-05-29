@@ -1,5 +1,22 @@
+<script setup lang="ts">
+import { themeSetting } from '~/settings/theme'
+
+const { setting } = useThemeSetting({ initialValue: themeSetting })
+const { theme, themeOverrides } = useNaiveTheme({
+  themeOverrides: computed(() => ({
+    common: setting.value?.themeColor,
+  })),
+  darkThemeOverrides: computed(() => ({
+    common: setting.value?.darkThemeColor,
+  })),
+})
+</script>
+
 <template>
-  <YConfigProvider>
+  <YConfigProvider
+    :theme
+    :theme-overrides
+  >
     <RouterView />
   </YConfigProvider>
 </template>
