@@ -81,7 +81,7 @@ function go(path: string) {
 
     <template #footer>
       <div class="wh-full flex-center">
-        Copyright © 2024-present Yoze
+        Yoze
       </div>
     </template>
 
