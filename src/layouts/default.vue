@@ -15,7 +15,7 @@ function go(path: string) {
 
 <template>
   <YLayout
-    :mode="setting.layoutMode.includes('horizontal') ? 'horizontal' : 'vertical'"
+    :mode="setting.layoutMode?.includes('horizontal') ? 'horizontal' : 'vertical'"
     :show-header="setting.header.show"
     :show-footer="setting.footer.show"
     :show-sider="setting.sider.show && setting.layoutMode !== 'horizontal-simple'"
