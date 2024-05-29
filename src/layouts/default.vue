@@ -65,18 +65,7 @@ function go(path: string) {
     </template>
 
     <div class="wh-full flex flex-col overflow-hidden bg-#f3f3f5 dark:bg-#101014">
-      <RouterView #="{ Component, route }">
-        <Transition
-          appear
-          mode="out-in"
-          :name="setting?.page.animate ? setting?.page.animateMode : undefined"
-        >
-          <Component
-            :is="Component"
-            :key="route.path"
-          />
-        </Transition>
-      </RouterView>
+      <YRouterView :transition-name="setting?.page.animate ? setting?.page.animateMode : undefined" />
     </div>
 
     <template #footer>
