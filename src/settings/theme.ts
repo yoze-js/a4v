@@ -12,6 +12,7 @@ export const themeSetting = {
     warningColor: '#F0A020',
     errorColor: '#D03050',
   },
+  layoutMode: 'vertical',
   header: {
     show: true,
     height: 64,
