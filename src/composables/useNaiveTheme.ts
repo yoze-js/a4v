@@ -45,16 +45,6 @@ export interface UseNaiveThemeReturn {
 }
 
 /**
- * 默认主题颜色
- */
-export const defaultCommonColor = {
-  primaryColor: '#18A058',
-  infoColor: '#2080F0',
-  warningColor: '#F0A020',
-  errorColor: '#D03050',
-}
-
-/**
  * Naive UI 主题设置
  * @param options 参数
  */
@@ -79,10 +69,7 @@ export function useNaiveTheme(options: UseNaiveThemeOptions = {}): UseNaiveTheme
   const mergeThemeOverrides = computed(() => {
     return {
       ...currentThemeOverrides.value,
-      common: {
-        ...defaultCommonColor,
-        ...currentThemeOverrides.value?.common,
-      },
+      common: currentThemeOverrides.value?.common,
     }
   })
   const themeOverrides = computed<GlobalThemeOverrides>(() => {
