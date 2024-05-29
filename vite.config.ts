@@ -16,7 +16,9 @@ export default defineConfig({
   plugins: [
     VueRouter({
       dts: 'types/typed-router.d.ts',
-      exclude: ['**/components/**'],
+      exclude: [
+        '**/components/**',
+      ],
     }),
 
     // Vue must be placed after VueRouter()
@@ -26,7 +28,11 @@ export default defineConfig({
 
     VueDevTools(),
 
-    Layouts(),
+    Layouts({
+      exclude: [
+        '**/components/**',
+      ],
+    }),
 
     Unocss(),
 
@@ -64,7 +70,7 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '~': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
 
