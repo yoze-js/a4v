@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import { cloneDeep } from 'lodash-es'
 import LayoutMode from './LayoutMode.vue'
-import { pageAnimateModeOptions } from '~/settings/theme'
+import { pageAnimateModeOptions, themeSetting } from '~/settings/theme'
 
 defineProps<{
   show: boolean
@@ -8,13 +9,25 @@ defineProps<{
 
 const show = defineModel<boolean>('show')
 
+const message = useMessage()
 const mode = useColorMode()
 const isDark = computed(() => mode.value === 'dark')
 const { setting } = useThemeSetting()
+const { copy } = useClipboard()
 
 async function handleUpdateValue(val: 'light' | 'dark' | 'auto') {
   mode.value = val
   setting.value.themeMode = val
+}
+
+function handleResetSetting() {
+  setting.value = cloneDeep(themeSetting)
+  message.success('重置成功')
+}
+
+function handleCopySetting() {
+  copy(JSON.stringify(setting.value))
+  message.success('复制成功')
 }
 </script>
 
@@ -215,5 +228,26 @@ async function handleUpdateValue(val: 'light' | 'dark' | 'auto') {
         <NSwitch v-model:value="setting.pageLoadingBar" />
       </NFormItem> -->
     </NForm>
+
+    <template #footer>
+      <NFlex
+        align="center"
+        justify="space-between"
+      >
+        <NButton
+          type="error"
+          ghost
+          @click="handleResetSetting"
+        >
+          重置配置
+        </NButton>
+        <NButton
+          type="primary"
+          @click="handleCopySetting"
+        >
+          复制配置
+        </NButton>
+      </NFlex>
+    </template>
   </YDrawer>
 </template>
