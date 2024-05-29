@@ -78,33 +78,35 @@ const headerWrapperStyle = computed<CSSProperties>(() => {
   }
 })
 const siderWrapperStyle = computed<CSSProperties>(() => {
-  const reduceHeaderHeight = props.showHeader ? ` - ${headerHeightStr.value}` : 0
   return {
     paddingTop: isHorizontal.value ? props.showHeader ? headerHeightStr.value : 0 : 0,
     width: siderResultWithStr.value,
-    height: `calc(100%${isHorizontal.value ? reduceHeaderHeight : 0})`,
   }
 })
+
+const siderTransform = computed(() => `translateX(-${siderResultWithStr.value})`)
 </script>
 
 <template>
   <div class="y-layout relative h-full flex flex-col">
-    <div
-      v-if="showSider"
-      class="absolute z-9 h-full transition-300 transition-property-width,padding"
-      :style="siderWrapperStyle"
-    >
+    <Transition name="layout-sider-transition">
       <div
-        class="box-border h-full overflow-hidden"
-        :class="siderClass"
-        :style="siderStyle"
+        v-if="showSider"
+        class="absolute z-9 h-full transition-300 transition-property-width,padding"
+        :style="siderWrapperStyle"
       >
-        <slot
-          name="sider"
-          :collapsed="collapsed"
-        />
+        <div
+          class="box-border h-full overflow-hidden"
+          :class="siderClass"
+          :style="siderStyle"
+        >
+          <slot
+            name="sider"
+            :collapsed="collapsed"
+          />
+        </div>
       </div>
-    </div>
+    </Transition>
     <div
       v-if="showHeader"
       class="h-full flex-grow transition-300 transition-property-padding"
@@ -145,3 +147,18 @@ const siderWrapperStyle = computed<CSSProperties>(() => {
     </div>
   </div>
 </template>
+
+<style scoped>
+.layout-sider-transition-enter-active,
+.layout-sider-transition-leave-active {
+  transition: all 0.3s;
+}
+.layout-sider-transition-enter-from {
+  transform: v-bind('siderTransform');
+  opacity: 0;
+}
+.layout-sider-transition-leave-to {
+  transform: v-bind('siderTransform');
+  opacity: 0;
+}
+</style>
