@@ -11,6 +11,8 @@ export interface ScrollbarOptions {
   top?: number
   /**
    * 滚动类型
+   *
+   * @default 'smooth'
    */
   behavior?: ScrollBehavior
 }
@@ -18,11 +20,13 @@ export interface ScrollbarOptions {
 export interface UseScrollbarReturn {
   /**
    * 滚动特定距离
+   *
    * @param options 滚动参数
    */
   scrollBy: (options: ScrollbarOptions) => void
   /**
-   * 	滚动内容
+   * 滚动内容
+   *
    * @param options 滚动参数
    */
   scrollTo: (options: ScrollbarOptions) => void
@@ -34,15 +38,19 @@ export interface UseScrollbarReturn {
  */
 export function useScrollbar(el: Ref): UseScrollbarReturn {
   function scrollBy(options: ScrollbarOptions): void {
+    const { behavior = 'smooth' } = options
+
     el.value?.scrollBy({
-      behavior: 'smooth',
+      behavior,
       ...options,
     })
   }
 
   function scrollTo(options: ScrollbarOptions): void {
+    const { behavior = 'smooth' } = options
+
     el.value?.scrollTo({
-      behavior: 'smooth',
+      behavior,
       ...options,
     })
   }
