@@ -12,9 +12,7 @@ export interface useThemeOptions {
   initialValue?: MaybeRefOrGetter<any>
   /**
    * 本地存储 key
-   *
    * 传递 null 关闭本地存储
-   *
    * @default 'a4v-theme-setting-scheme'
    */
   storageKey?: string | null

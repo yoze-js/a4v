@@ -13,9 +13,7 @@ export interface ColorAction {
 export interface UseNaiveThemeOptions {
   /**
    * 本地存储 key
-   *
    * 传递 null 关闭本地存储
-   *
    * @default 'a4v-theme-setting-scheme'
    */
   storageKey?: string | null
@@ -26,11 +24,11 @@ export interface UseNaiveThemeOptions {
   /**
    * Naive UI 主题覆盖
    */
-  themeOverrides?: MaybeRefOrGetter<GlobalThemeOverrides>
+  themeOverrides?: MaybeRefOrGetter<GlobalThemeOverrides | null | undefined>
   /**
    * Naive UI 暗黑主题覆盖
    */
-  darkThemeOverrides?: MaybeRefOrGetter<GlobalThemeOverrides>
+  darkThemeOverrides?: MaybeRefOrGetter<GlobalThemeOverrides | null | undefined>
 }
 
 export interface UseNaiveThemeReturn {
@@ -56,13 +54,10 @@ export function useNaiveTheme(options: UseNaiveThemeOptions = {}): UseNaiveTheme
   } = options
 
   const mode = useColorMode({ initialValue: themeMode })
-  const isDark = computed(() => {
-    return mode.value === 'dark'
-  })
+  const isDark = computed(() => mode.value === 'dark')
   const theme = computed(() => {
     return isDark.value ? darkTheme : null
   })
-
   const currentThemeOverrides = computed(() => {
     return isDark.value ? toValue(initialDarkThemeOverrides) : toValue(initialThemeOverrides)
   })
@@ -96,7 +91,7 @@ export function useNaiveTheme(options: UseNaiveThemeOptions = {}): UseNaiveTheme
     const colorActions: ColorAction[] = [
       {
         scene: '',
-        handler: color => getGenerateColors(color, isDark)[5],
+        handler: color => color,
       },
       {
         scene: 'Hover',

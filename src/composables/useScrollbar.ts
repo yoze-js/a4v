@@ -11,7 +11,6 @@ export interface ScrollbarOptions {
   top?: number
   /**
    * 滚动类型
-   *
    * @default 'smooth'
    */
   behavior?: ScrollBehavior
@@ -20,13 +19,11 @@ export interface ScrollbarOptions {
 export interface UseScrollbarReturn {
   /**
    * 滚动特定距离
-   *
    * @param options 滚动参数
    */
   scrollBy: (options: ScrollbarOptions) => void
   /**
    * 滚动内容
-   *
    * @param options 滚动参数
    */
   scrollTo: (options: ScrollbarOptions) => void

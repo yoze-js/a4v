@@ -8,7 +8,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<LayoutProps>(), {
-  collapsedWidth: 64,
+  siderCollapsedWidth: 64,
   footerHeight: 64,
   headerHeight: 64,
   mode: 'vertical',
@@ -39,8 +39,8 @@ defineSlots<{
 }>()
 
 const collapsed = defineModel<boolean>('collapsed', { default: false })
-const collapsedWidthStr = computed(() => {
-  return formatLength(props.collapsedWidth)
+const siderCollapsedWidthStr = computed(() => {
+  return formatLength(props.siderCollapsedWidth)
 })
 const footerHeightStr = computed(() => {
   return formatLength(props.footerHeight)
@@ -55,7 +55,7 @@ const siderWidthStr = computed(() => {
   return formatLength(props.siderWidth)
 })
 const siderResultWithStr = computed(() => {
-  return collapsed.value ? collapsedWidthStr.value : siderWidthStr.value
+  return collapsed.value ? siderCollapsedWidthStr.value : siderWidthStr.value
 })
 const contentWrapperStyle = computed<CSSProperties>(() => {
   const reduceHeaderHeight = props.showHeader ? ` - ${headerHeightStr.value}` : ''

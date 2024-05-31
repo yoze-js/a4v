@@ -6,10 +6,6 @@ export interface LayoutProps {
    */
   collapsed?: boolean
   /**
-   * 侧边栏折叠宽度
-   */
-  collapsedWidth?: number | string
-  /**
    * 内容类名
    */
   contentClass?: any
@@ -69,4 +65,8 @@ export interface LayoutProps {
    * 侧边栏宽度
    */
   siderWidth?: number | string
+  /**
+   * 侧边栏折叠宽度
+   */
+  siderCollapsedWidth?: number | string
 }

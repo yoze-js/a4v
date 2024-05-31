@@ -163,6 +163,13 @@ function handleCopySetting() {
           class="w-90px"
         />
       </NFormItem>
+      <NFormItem label="成功色">
+        <NColorPicker
+          v-model:value="setting.themeColor.successColor"
+          :show-alpha="false"
+          class="w-90px"
+        />
+      </NFormItem>
       <NFormItem label="警告色">
         <NColorPicker
           v-model:value="setting.themeColor.warningColor"
@@ -191,6 +198,13 @@ function handleCopySetting() {
       <NFormItem label="信息色">
         <NColorPicker
           v-model:value="setting.darkThemeColor.infoColor"
+          :show-alpha="false"
+          class="w-90px"
+        />
+      </NFormItem>
+      <NFormItem label="成功色">
+        <NColorPicker
+          v-model:value="setting.darkThemeColor.successColor"
           :show-alpha="false"
           class="w-90px"
         />
@@ -224,9 +238,9 @@ function handleCopySetting() {
           class="w-140px"
         />
       </NFormItem>
-      <!-- <NFormItem label="页面加载进度条">
-        <NSwitch v-model:value="setting.pageLoadingBar" />
-      </NFormItem> -->
+      <NFormItem label="加载进度条">
+        <NSwitch v-model:value="setting.page.loadingBar" />
+      </NFormItem>
     </NForm>
 
     <template #footer>

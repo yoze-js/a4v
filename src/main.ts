@@ -4,16 +4,12 @@ import './styles/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createRouter, createWebHistory } from 'vue-router/auto'
-import { setupLayouts } from 'virtual:generated-layouts'
 import App from './App.vue'
+import { router } from './router'
 
 const app = createApp(App)
 
 app.use(createPinia())
-app.use(createRouter({
-  history: createWebHistory(),
-  extendRoutes: (routes: any) => setupLayouts(routes),
-}))
+app.use(router)
 
 app.mount('#app')

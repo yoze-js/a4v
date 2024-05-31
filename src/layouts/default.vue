@@ -18,7 +18,7 @@ function go(path: string) {
     :mode="setting.layoutMode?.includes('horizontal') ? 'horizontal' : 'vertical'"
     :show-header="setting.header.show"
     :show-footer="setting.footer.show"
-    :show-sider="setting.sider.show && setting.layoutMode !== 'horizontal-simple'"
+    :show-sider="setting.sider.show && setting.layoutMode !== 'horizontal'"
     :sider-width="setting.sider.width"
     :sider-collapsed-width="setting.sider.collapsedWidth"
     :header-height="setting.header.height"
