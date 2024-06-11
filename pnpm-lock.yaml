@@ -11,24 +11,6 @@ importers:
       '@unocss/reset':
         specifier: ^0.60.3
         version: 0.60.3
-      '@vue-flow/background':
-        specifier: ^1.3.0
-        version: 1.3.0(@vue-flow/core@1.34.0)(vue@3.4.27)
-      '@vue-flow/controls':
-        specifier: ^1.1.2
-        version: 1.1.2(@vue-flow/core@1.34.0)(vue@3.4.27)
-      '@vue-flow/core':
-        specifier: ^1.34.0
-        version: 1.34.0(vue@3.4.27)
-      '@vue-flow/minimap':
-        specifier: ^1.4.1
-        version: 1.4.1(@vue-flow/core@1.34.0)(vue@3.4.27)
-      '@vue-flow/node-resizer':
-        specifier: ^1.3.6
-        version: 1.3.6(@vue-flow/core@1.34.0)(vue@3.4.27)
-      '@vue-flow/node-toolbar':
-        specifier: ^1.1.0
-        version: 1.1.0(@vue-flow/core@1.34.0)
       '@vueuse/core':
         specifier: ^10.9.0
         version: 10.9.0(vue@3.4.27)
@@ -1706,72 +1688,6 @@ packages:
       path-browserify: 1.0.1
     dev: true
 
-  /@vue-flow/background@1.3.0(@vue-flow/core@1.34.0)(vue@3.4.27):
-    resolution: {integrity: sha512-fu/8s9wzSOQIitnSTI10XT3bzTtagh4h8EF2SWwtlDklOZjAaKy75lqv4htHa3wigy/r4LGCOGwLw3Pk88/AxA==}
-    peerDependencies:
-      '@vue-flow/core': ^1.23.0
-      vue: ^3.3.0
-    dependencies:
-      '@vue-flow/core': 1.34.0(vue@3.4.27)
-      vue: 3.4.27(typescript@5.4.5)
-    dev: false
-
-  /@vue-flow/controls@1.1.2(@vue-flow/core@1.34.0)(vue@3.4.27):
-    resolution: {integrity: sha512-6dtl/JnwDBNau5h3pDBdOCK6tdxiVAOL3cyruRL61gItwq5E97Hmjmj2BIIqX2p7gU1ENg3z80Z4zlu58fGlsg==}
-    peerDependencies:
-      '@vue-flow/core': ^1.23.0
-      vue: ^3.3.0
-    dependencies:
-      '@vue-flow/core': 1.34.0(vue@3.4.27)
-      vue: 3.4.27(typescript@5.4.5)
-    dev: false
-
-  /@vue-flow/core@1.34.0(vue@3.4.27):
-    resolution: {integrity: sha512-g00ZxAMmIziFG16FeuE9WEsELNlABzFvv835tXJwCM1b5HAjbzh/d8iFtl6OkuCGfBeTgpo/PrqzU7nmLQpY2w==}
-    peerDependencies:
-      vue: ^3.3.0
-    dependencies:
-      '@vueuse/core': 10.9.0(vue@3.4.27)
-      d3-drag: 3.0.0
-      d3-selection: 3.0.0
-      d3-zoom: 3.0.0
-      vue: 3.4.27(typescript@5.4.5)
-    transitivePeerDependencies:
-      - '@vue/composition-api'
-    dev: false
-
-  /@vue-flow/minimap@1.4.1(@vue-flow/core@1.34.0)(vue@3.4.27):
-    resolution: {integrity: sha512-EkBNDKc65ccNpv6sgpCPo4woIZ8yUGUbmZuGwg2Aur6sC3DXlMetGbFeOxlKKDKTlidUJmaG/hLVl3zNILUgYg==}
-    peerDependencies:
-      '@vue-flow/core': ^1.23.0
-      vue: ^3.3.0
-    dependencies:
-      '@vue-flow/core': 1.34.0(vue@3.4.27)
-      d3-selection: 3.0.0
-      d3-zoom: 3.0.0
-      vue: 3.4.27(typescript@5.4.5)
-    dev: false
-
-  /@vue-flow/node-resizer@1.3.6(@vue-flow/core@1.34.0)(vue@3.4.27):
-    resolution: {integrity: sha512-xiq8wtuOYW+NqF+DVRvBXeUPwBS/RCBgBSv5N4Ahf1DlbePgXBYdFCJeyApj3uSiTI+JkBx7pl82ojnbeefOBg==}
-    peerDependencies:
-      '@vue-flow/core': ^1.23.0
-      vue: ^3.3.0
-    dependencies:
-      '@vue-flow/core': 1.34.0(vue@3.4.27)
-      d3-drag: 3.0.0
-      d3-selection: 3.0.0
-      vue: 3.4.27(typescript@5.4.5)
-    dev: false
-
-  /@vue-flow/node-toolbar@1.1.0(@vue-flow/core@1.34.0):
-    resolution: {integrity: sha512-6RVDHgY+x8m1cXPaEkqPa/RMR90AC1hPHYBK/QVh8k6lJnFPgwJ9PSiYoC4amsUiDK0mF0Py+PlztLJY1ty+4A==}
-    peerDependencies:
-      '@vue-flow/core': ^1.12.2
-    dependencies:
-      '@vue-flow/core': 1.34.0(vue@3.4.27)
-    dev: false
-
   /@vue-macros/common@1.10.3(vue@3.4.27):
     resolution: {integrity: sha512-YSgzcbXrRo8a/TF/YIguqEmTld1KA60VETKJG8iFuaAfj7j+Tbdin3cj7/cYbcCHORSq1v9IThgq7r8keH7LXQ==}
     engines: {node: '>=16.14.0'}
@@ -2305,71 +2221,6 @@ packages:
 
   /csstype@3.1.3:
     resolution: {integrity: sha512-M1uQkMl8rQK/szD0LNhtqxIPLpimGm8sOBwU7lLnCpSbTyY3yeU1Vc7l4KT5zT4s/yOxHH5O7tIuuLOCnLADRw==}
-
-  /d3-color@3.1.0:
-    resolution: {integrity: sha512-zg/chbXyeBtMQ1LbD/WSoW2DpC3I0mpmPdW+ynRTj/x2DAWYrIY7qeZIHidozwV24m4iavr15lNwIwLxRmOxhA==}
-    engines: {node: '>=12'}
-    dev: false
-
-  /d3-dispatch@3.0.1:
-    resolution: {integrity: sha512-rzUyPU/S7rwUflMyLc1ETDeBj0NRuHKKAcvukozwhshr6g6c5d8zh4c2gQjY2bZ0dXeGLWc1PF174P2tVvKhfg==}
-    engines: {node: '>=12'}
-    dev: false
-
-  /d3-drag@3.0.0:
-    resolution: {integrity: sha512-pWbUJLdETVA8lQNJecMxoXfH6x+mO2UQo8rSmZ+QqxcbyA3hfeprFgIT//HW2nlHChWeIIMwS2Fq+gEARkhTkg==}
-    engines: {node: '>=12'}
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-selection: 3.0.0
-    dev: false
-
-  /d3-ease@3.0.1:
-    resolution: {integrity: sha512-wR/XK3D3XcLIZwpbvQwQ5fK+8Ykds1ip7A2Txe0yxncXSdq1L9skcG7blcedkOX+ZcgxGAmLX1FrRGbADwzi0w==}
-    engines: {node: '>=12'}
-    dev: false
-
-  /d3-interpolate@3.0.1:
-    resolution: {integrity: sha512-3bYs1rOD33uo8aqJfKP3JWPAibgw8Zm2+L9vBKEHJ2Rg+viTR7o5Mmv5mZcieN+FRYaAOWX5SJATX6k1PWz72g==}
-    engines: {node: '>=12'}
-    dependencies:
-      d3-color: 3.1.0
-    dev: false
-
-  /d3-selection@3.0.0:
-    resolution: {integrity: sha512-fmTRWbNMmsmWq6xJV8D19U/gw/bwrHfNXxrIN+HfZgnzqTHp9jOmKMhsTUjXOJnZOdZY9Q28y4yebKzqDKlxlQ==}
-    engines: {node: '>=12'}
-    dev: false
-
-  /d3-timer@3.0.1:
-    resolution: {integrity: sha512-ndfJ/JxxMd3nw31uyKoY2naivF+r29V+Lc0svZxe1JvvIRmi8hUsrMvdOwgS1o6uBHmiz91geQ0ylPP0aj1VUA==}
-    engines: {node: '>=12'}
-    dev: false
-
-  /d3-transition@3.0.1(d3-selection@3.0.0):
-    resolution: {integrity: sha512-ApKvfjsSR6tg06xrL434C0WydLr7JewBB3V+/39RMHsaXTOG0zmt/OAXeng5M5LBm0ojmxJrpomQVZ1aPvBL4w==}
-    engines: {node: '>=12'}
-    peerDependencies:
-      d3-selection: 2 - 3
-    dependencies:
-      d3-color: 3.1.0
-      d3-dispatch: 3.0.1
-      d3-ease: 3.0.1
-      d3-interpolate: 3.0.1
-      d3-selection: 3.0.0
-      d3-timer: 3.0.1
-    dev: false
-
-  /d3-zoom@3.0.0:
-    resolution: {integrity: sha512-b8AmV3kfQaqWAuacbPuNbL6vahnOJflOhexLzMMNLga62+/nh0JzvJ0aO/5a5MVgUFGS7Hu1P9P03o3fJkDCyw==}
-    engines: {node: '>=12'}
-    dependencies:
-      d3-dispatch: 3.0.1
-      d3-drag: 3.0.0
-      d3-interpolate: 3.0.1
-      d3-selection: 3.0.0
-      d3-transition: 3.0.1(d3-selection@3.0.0)
-    dev: false
 
   /date-fns-tz@2.0.1(date-fns@2.30.0):
     resolution: {integrity: sha512-fJCG3Pwx8HUoLhkepdsP7Z5RsucUi+ZBOxyM5d0ZZ6c4SdYustq0VMmOu6Wf7bli+yS/Jwp91TOCqn9jMcVrUA==}
