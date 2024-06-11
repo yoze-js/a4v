@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 
-const { loadingBar } = useNaiveApi()
+const { loadingBar } = useNaiveDiscreteApi()
 
 export const router = createRouter({
   history: createWebHistory(),

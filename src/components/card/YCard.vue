@@ -48,14 +48,11 @@ function handleFullscreen() {
     </template>
 
     <template
-      v-for="(_, key) in slots"
+      v-for="(_, key) in omit(slots, ['header-extra', 'footer'])"
       :key="key"
       #[key]
     >
-      <slot
-        v-if="!['header-extra', 'footeer'].includes(key)"
-        :name="key"
-      />
+      <slot :name="key" />
     </template>
 
     <template #footer>

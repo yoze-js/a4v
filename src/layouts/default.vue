@@ -1,16 +1,15 @@
 <script setup lang="ts">
-import LayoutSetting from './components/LayoutSetting.vue'
+import Logo from './components/sider/Logo.vue'
+import Menu from './components/sider/Menu.vue'
+import CollapseButton from './components/header/CollapseButton.vue'
+import FullscreenButton from './components/header/FullscreenButton.vue'
+import ThemeModeButton from './components/header/ThemeModeButton.vue'
+import ThemeSettingButton from './components/header/ThemeSettingButton.vue'
+import UserDropdown from './components/header/UserDropdown.vue'
 
-const router = useRouter()
 const mode = useColorMode()
 const isDark = computed(() => mode.value === 'dark')
 const { setting } = useThemeSetting()
-
-const showSetting = ref(false)
-
-function go(path: string) {
-  router.push(path)
-}
 </script>
 
 <template>
@@ -21,6 +20,7 @@ function go(path: string) {
     :show-sider="setting.sider.show && setting.layoutMode !== 'horizontal'"
     :sider-width="setting.sider.width"
     :sider-collapsed-width="setting.sider.collapsedWidth"
+    :collapsed="setting.sider.collapsed"
     :header-height="setting.header.height"
     :footer-height="setting.footer.height"
     :header-class="{
@@ -32,34 +32,33 @@ function go(path: string) {
     :footer-class="{
       'bg-#001427 text-#ffffffd1': !isDark && setting?.footer.inverted,
     }"
+    content-class="rounded-tl-12px rounded-bl-12px"
     class="!h-100vh dark:bg-#18181c"
   >
     <template #sider>
-      <div class="wh-full flex-center">
-        <NFlex vertical>
-          <NButton @click="go('/')">
-            首页
-          </NButton>
-          <NButton @click="go('/about')">
-            关于
-          </NButton>
-        </NFlex>
+      <div class="wh-full flex flex-col">
+        <Logo />
+        <Menu />
       </div>
     </template>
 
     <template #header>
       <div class="wh-full flex items-center justify-between">
-        <div>header</div>
-        <NFlex class="mr-24px">
-          <div
-            :class="{
-              'hover:bg-#ffffff17': !isDark && setting?.header.inverted,
-            }"
-            class="h-40px w-40px flex-center cursor-pointer rounded-3px transition-300 hover:bg-#f3f3f5 dark:hover:bg-#ffffff17"
-            @click="showSetting = true"
-          >
-            <div class="i-icon-park-outline-platte text-16px" />
-          </div>
+        <NFlex
+          align="center"
+          :class="setting.sider.inverted ? 'ml-24px' : 'ml-0'"
+          class="transition-300 transition-property-margin"
+        >
+          <CollapseButton />
+        </NFlex>
+        <NFlex
+          align="center"
+          class="mr-24px"
+        >
+          <FullscreenButton />
+          <ThemeModeButton />
+          <ThemeSettingButton />
+          <UserDropdown />
         </NFlex>
       </div>
     </template>
@@ -73,7 +72,5 @@ function go(path: string) {
         footer
       </div>
     </template>
-
-    <LayoutSetting v-model:show="showSetting" />
   </YLayout>
 </template>

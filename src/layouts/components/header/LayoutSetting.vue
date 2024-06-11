@@ -10,13 +10,13 @@ defineProps<{
 const show = defineModel<boolean>('show')
 
 const message = useMessage()
-const mode = useColorMode()
-const isDark = computed(() => mode.value === 'dark')
+const { store } = useColorMode()
+const isDark = computed(() => store.value === 'dark')
 const { setting } = useThemeSetting()
 const { copy } = useClipboard()
 
 async function handleUpdateValue(val: 'light' | 'dark' | 'auto') {
-  mode.value = val
+  store.value = val
   setting.value.themeMode = val
 }
 
@@ -46,7 +46,7 @@ function handleCopySetting() {
         主题模式
       </NDivider>
       <NTabs
-        :value="setting.themeMode"
+        :value="store"
         type="segment"
         class="mb-12px"
         @update:value="handleUpdateValue"
@@ -118,6 +118,9 @@ function handleCopySetting() {
             class="w-140px"
           />
         </NFormItem>
+        <NFormItem label="折叠侧边栏">
+          <NSwitch v-model:value="setting.sider.collapsed" />
+        </NFormItem>
         <NFormItem
           v-if="!isDark"
           label="深色侧边栏"
@@ -151,35 +154,35 @@ function handleCopySetting() {
       </NDivider>
       <NFormItem label="主色">
         <NColorPicker
-          v-model:value="setting.themeColor.primaryColor"
+          v-model:value="setting.lightThemeColor.primaryColor"
           :show-alpha="false"
           class="w-90px"
         />
       </NFormItem>
       <NFormItem label="信息色">
         <NColorPicker
-          v-model:value="setting.themeColor.infoColor"
+          v-model:value="setting.lightThemeColor.infoColor"
           :show-alpha="false"
           class="w-90px"
         />
       </NFormItem>
       <NFormItem label="成功色">
         <NColorPicker
-          v-model:value="setting.themeColor.successColor"
+          v-model:value="setting.lightThemeColor.successColor"
           :show-alpha="false"
           class="w-90px"
         />
       </NFormItem>
       <NFormItem label="警告色">
         <NColorPicker
-          v-model:value="setting.themeColor.warningColor"
+          v-model:value="setting.lightThemeColor.warningColor"
           :show-alpha="false"
           class="w-90px"
         />
       </NFormItem>
       <NFormItem label="错误色">
         <NColorPicker
-          v-model:value="setting.themeColor.errorColor"
+          v-model:value="setting.lightThemeColor.errorColor"
           :show-alpha="false"
           class="w-90px"
         />
