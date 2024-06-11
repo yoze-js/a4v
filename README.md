@@ -75,7 +75,7 @@ pnpm lint:fix
 ```ts
 const themeSetting = {
   themeMode: 'auto',
-  themeColor: {
+  lightThemeColor: {
     primaryColor: '#18A058',
     infoColor: '#2080F0',
     successColor: '#18A058',
@@ -99,6 +99,7 @@ const themeSetting = {
     show: true,
     width: 240,
     collapsedWidth: 64,
+    collapsed: false,
     inverted: false,
   },
   footer: {
@@ -112,6 +113,13 @@ const themeSetting = {
     loadingBar: true,
   },
 }
+
+export const pageAnimateModeOptions = [
+  { value: 'fade', label: '淡入淡出' },
+  { value: 'fade-slide', label: '滑动' },
+  { value: 'fade-top', label: '顶部消退' },
+  { value: 'fade-bottom', label: '底部消退' },
+]
 
 const { setting } = useThemeSetting({ initialValue: themeSetting })
 ```
