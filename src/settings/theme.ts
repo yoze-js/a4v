@@ -1,6 +1,6 @@
 export const themeSetting = {
   themeMode: 'auto',
-  themeColor: {
+  lightThemeColor: {
     primaryColor: '#18A058',
     infoColor: '#2080F0',
     successColor: '#18A058',
@@ -24,6 +24,7 @@ export const themeSetting = {
     show: true,
     width: 240,
     collapsedWidth: 64,
+    collapsed: false,
     inverted: false,
   },
   footer: {

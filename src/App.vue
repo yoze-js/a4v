@@ -3,9 +3,21 @@ import { cloneDeep } from 'lodash-es'
 import { themeSetting } from '~/settings/theme'
 
 const { setting } = useThemeSetting({ initialValue: cloneDeep(themeSetting) })
-const { theme, themeOverrides } = useNaiveTheme({
-  themeOverrides: computed(() => ({
-    common: setting.value?.themeColor,
+
+const configProviderProps = useNaiveConfigProvider({
+  themeOverrides: {
+    common: {
+      borderRadius: '8px',
+    },
+    Card: {
+      borderRadius: '12px',
+    },
+    Drawer: {
+      borderRadius: '12px',
+    },
+  },
+  lightThemeOverrides: computed(() => ({
+    common: setting.value?.lightThemeColor,
   })),
   darkThemeOverrides: computed(() => ({
     common: setting.value?.darkThemeColor,
@@ -14,10 +26,7 @@ const { theme, themeOverrides } = useNaiveTheme({
 </script>
 
 <template>
-  <YConfigProvider
-    :theme
-    :theme-overrides
-  >
+  <YConfigProvider v-bind="configProviderProps">
     <RouterView />
   </YConfigProvider>
 </template>

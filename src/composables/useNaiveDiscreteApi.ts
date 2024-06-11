@@ -1,7 +1,9 @@
-import type { DialogApi, LoadingBarApi, MessageApi, NotificationApi } from 'naive-ui'
+import type { ConfigProviderProps, DialogApi, LoadingBarApi, MessageApi, NotificationApi } from 'naive-ui'
 import { createDiscreteApi } from 'naive-ui'
 
-export interface UseNaiveApiReturn {
+export interface UseNaiveDiscreteApiOptions extends ConfigProviderProps {}
+
+export interface UseNaiveDiscreteApiReturn {
   /**
    * Naive UI 对话框 API
    */
@@ -23,25 +25,23 @@ export interface UseNaiveApiReturn {
 /**
  * Naive UI 脱离上下文的 API
  */
-export function useNaiveApi(): UseNaiveApiReturn {
+export function useNaiveDiscreteApi(options: UseNaiveDiscreteApiOptions = {}): UseNaiveDiscreteApiReturn {
   const { setting } = useThemeSetting()
 
-  const { theme, themeOverrides } = useNaiveTheme({
-    themeOverrides: computed(() => ({
-      common: setting.value?.themeColor,
+  const configProviderProps = useNaiveConfigProvider({
+    lightThemeOverrides: computed(() => ({
+      common: setting.value?.lightThemeColor,
     })),
     darkThemeOverrides: computed(() => ({
       common: setting.value?.darkThemeColor,
     })),
+    ...options,
   })
 
   const { dialog, loadingBar, message, notification } = createDiscreteApi(
     ['message', 'dialog', 'notification', 'loadingBar'],
     {
-      configProviderProps: {
-        theme: theme.value,
-        themeOverrides: themeOverrides.value,
-      },
+      configProviderProps,
     },
   )
 

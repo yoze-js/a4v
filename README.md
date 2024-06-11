@@ -67,3 +67,79 @@ pnpm up
 pnpm lint
 pnpm lint:fix
 ```
+
+## 主题
+
+### 主题配置
+
+```ts
+const themeSetting = {
+  themeMode: 'auto',
+  themeColor: {
+    primaryColor: '#18A058',
+    infoColor: '#2080F0',
+    successColor: '#18A058',
+    warningColor: '#F0A020',
+    errorColor: '#D03050',
+  },
+  darkThemeColor: {
+    primaryColor: '#63e2b7',
+    infoColor: '#70c0e8',
+    successColor: '#63e2b7',
+    warningColor: '#f2c97d',
+    errorColor: '#e88080',
+  },
+  layoutMode: 'vertical',
+  header: {
+    show: true,
+    height: 64,
+    inverted: false,
+  },
+  sider: {
+    show: true,
+    width: 240,
+    collapsedWidth: 64,
+    inverted: false,
+  },
+  footer: {
+    show: true,
+    height: 64,
+    inverted: false,
+  },
+  page: {
+    animate: true,
+    animateMode: 'fade-slide',
+    loadingBar: true,
+  },
+}
+
+const { setting } = useThemeSetting({ initialValue: themeSetting })
+```
+
+### 主题模式
+
+- 明亮
+- 暗黑
+- 系统
+
+```ts
+const mode = useColorMode()
+console.log(mode.value) // 'light' | 'dark' | 'auto'
+```
+
+### 全局化配置
+
+```ts
+const configProviderProps = useNaiveConfigProvider()
+```
+
+```html
+<NConfigProvider v-bind="configProviderProps"> ... </NConfigProvider>
+```
+
+### 脱离上下文的 API
+
+```ts
+const { dialog } = useNaiveApi()
+dialog.warning('warning!')
+```
