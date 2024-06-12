@@ -3,6 +3,7 @@ import Logo from './components/sider/Logo.vue'
 import Menu from './components/sider/Menu.vue'
 import Breadcrumb from './components/header/Breadcrumb.vue'
 import CollapseButton from './components/header/CollapseButton.vue'
+import LocaleDropdown from './components/header/LocaleDropdown.vue'
 import FullscreenButton from './components/header/FullscreenButton.vue'
 import ThemeModeButton from './components/header/ThemeModeButton.vue'
 import ThemeSettingButton from './components/header/ThemeSettingButton.vue'
@@ -55,6 +56,7 @@ const { isDark, setting } = storeToRefs(useThemeStore())
           align="center"
           class="mr-24px"
         >
+          <LocaleDropdown />
           <FullscreenButton />
           <ThemeModeButton />
           <ThemeSettingButton />

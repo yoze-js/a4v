@@ -1,10 +1,10 @@
 <script setup lang="ts">
-const title = 'Hello World!'
+const { t } = useI18n()
 </script>
 
 <template>
   <div class="p-24px">
-    <NP>{{ title }}</NP>
+    <NP>{{ t('welcome') }}</NP>
     <NDatePicker />
     <NDataTable />
   </div>

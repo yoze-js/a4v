@@ -14,6 +14,7 @@
       "vite/client",
       "vite-plugin-vue-layouts/client",
       "unplugin-vue-router/client",
+      "@intlify/unplugin-vue-i18n/messages",
       "naive-ui/volar"
     ],
     "allowJs": true,
