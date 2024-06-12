@@ -53,6 +53,10 @@ export interface UseNaiveConfigProviderOptions {
    */
   tag?: ConfigProviderProps['tag']
   /**
+   * 是否使用全局样式组件
+   */
+  globalStyle?: boolean
+  /**
    * 主题模式
    */
   themeMode?: UseColorModeOptions['initialValue']
@@ -70,7 +74,12 @@ export interface UseNaiveConfigProviderOptions {
   darkThemeOverrides?: MaybeRefOrGetter<GlobalThemeOverrides | null>
 }
 
-export interface UseNaiveConfigProviderReturn extends ConfigProviderProps {}
+export interface UseNaiveConfigProviderReturn extends ConfigProviderProps {
+  /**
+   * 是否使用全局样式组件
+   */
+  globalStyle?: boolean
+}
 
 export function useNaiveConfigProvider(options: UseNaiveConfigProviderOptions = {}): UseNaiveConfigProviderReturn {
   const {
@@ -83,8 +92,12 @@ export function useNaiveConfigProvider(options: UseNaiveConfigProviderOptions = 
     ...opts
   } = options
 
-  const mode = useColorMode({ initialValue: themeMode })
-  const isDark = computed(() => mode.value === 'dark')
+  const { isDark } = storeToRefs(useThemeStore())
+  const { toggleMode } = useThemeStore()
+
+  if (themeMode)
+    toggleMode(toValue(themeMode))
+
   const theme = computed(() => isDark.value ? darkTheme : null)
 
   const currentThemeOverrides = computed(() => {

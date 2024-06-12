@@ -26,7 +26,7 @@ export interface UseNaiveDiscreteApiReturn {
  * Naive UI 脱离上下文的 API
  */
 export function useNaiveDiscreteApi(options: UseNaiveDiscreteApiOptions = {}): UseNaiveDiscreteApiReturn {
-  const { setting } = useThemeSetting()
+  const { setting } = storeToRefs(useThemeStore())
 
   const configProviderProps = useNaiveConfigProvider({
     lightThemeOverrides: computed(() => ({

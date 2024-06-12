@@ -10,18 +10,13 @@ defineProps<{
 const show = defineModel<boolean>('show')
 
 const message = useMessage()
-const { store } = useColorMode()
-const isDark = computed(() => store.value === 'dark')
-const { setting } = useThemeSetting()
+const { isDark, setting } = storeToRefs(useThemeStore())
+const { toggleMode } = useThemeStore()
 const { copy } = useClipboard()
-
-async function handleUpdateValue(val: 'light' | 'dark' | 'auto') {
-  store.value = val
-  setting.value.themeMode = val
-}
 
 function handleResetSetting() {
   setting.value = cloneDeep(themeSetting)
+  toggleMode(setting.value.themeMode)
   message.success('重置成功')
 }
 
@@ -46,10 +41,10 @@ function handleCopySetting() {
         主题模式
       </NDivider>
       <NTabs
-        :value="store"
+        :value="setting.themeMode"
         type="segment"
         class="mb-12px"
-        @update:value="handleUpdateValue"
+        @update:value="toggleMode"
       >
         <NTab name="light">
           <div class="i-icon-park-outline-sun-one text-16px" />

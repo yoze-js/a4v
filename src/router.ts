@@ -1,24 +1,29 @@
+import type { LoadingBarApi } from 'naive-ui'
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
-
-const { loadingBar } = useNaiveDiscreteApi()
+import { routes } from 'vue-router/auto-routes'
 
 export const router = createRouter({
   history: createWebHistory(),
-  extendRoutes: (routes: any) => setupLayouts(routes),
+  routes: setupLayouts(routes),
 })
 
-router.beforeEach(() => {
-  const { setting } = useThemeSetting()
+let loading: LoadingBarApi
 
-  if (setting.value.page.loadingBar)
+router.beforeEach(() => {
+  const { setting } = storeToRefs(useThemeStore())
+
+  if (setting.value.page.loadingBar) {
+    const { loadingBar } = useNaiveDiscreteApi()
+    loading = loadingBar
     loadingBar.start()
+  }
 
   return true
 })
 
 router.afterEach(() => {
-  loadingBar.finish()
+  loading?.finish()
 
   return true
 })

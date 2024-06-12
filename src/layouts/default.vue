@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import Logo from './components/sider/Logo.vue'
 import Menu from './components/sider/Menu.vue'
+import Breadcrumb from './components/header/Breadcrumb.vue'
 import CollapseButton from './components/header/CollapseButton.vue'
 import FullscreenButton from './components/header/FullscreenButton.vue'
 import ThemeModeButton from './components/header/ThemeModeButton.vue'
 import ThemeSettingButton from './components/header/ThemeSettingButton.vue'
 import UserDropdown from './components/header/UserDropdown.vue'
 
-const mode = useColorMode()
-const isDark = computed(() => mode.value === 'dark')
-const { setting } = useThemeSetting()
+const { isDark, setting } = storeToRefs(useThemeStore())
 </script>
 
 <template>
@@ -50,6 +49,7 @@ const { setting } = useThemeSetting()
           class="transition-300 transition-property-margin"
         >
           <CollapseButton />
+          <Breadcrumb />
         </NFlex>
         <NFlex
           align="center"

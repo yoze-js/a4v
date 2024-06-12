@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import HeaderButton from './HeaderButton.vue'
 
-const mode = useColorMode()
-const isDark = computed(() => mode.value === 'dark')
-function toggle() {
-  mode.value = isDark.value ? 'light' : 'dark'
-}
+const { isDark } = storeToRefs(useThemeStore())
+const { toggleMode } = useThemeStore()
 </script>
 
 <template>
-  <HeaderButton @click="toggle">
+  <HeaderButton @click="toggleMode(isDark ? 'light' : 'dark')">
     <template #trigger>
       <div :class="isDark ? 'i-icon-park-outline-moon' : 'i-icon-park-outline-sun-one'" />
     </template>

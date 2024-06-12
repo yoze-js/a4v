@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const router = useRouter()
-const { setting } = useThemeSetting()
+const { setting } = storeToRefs(useThemeStore())
 
 function goHome() {
   router.push('/')

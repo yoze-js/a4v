@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { cloneDeep } from 'lodash-es'
-import { themeSetting } from '~/settings/theme'
-
-const { setting } = useThemeSetting({ initialValue: cloneDeep(themeSetting) })
+const { setting } = storeToRefs(useThemeStore())
 
 const configProviderProps = useNaiveConfigProvider({
   themeOverrides: {
