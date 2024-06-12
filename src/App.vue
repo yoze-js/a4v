@@ -1,4 +1,8 @@
 <script setup lang="ts">
+import { dateEnUS, dateZhCN, enUS, zhCN } from 'naive-ui'
+
+const { locale } = useI18n()
+
 const { setting } = storeToRefs(useThemeStore())
 
 const configProviderProps = useNaiveConfigProvider({
@@ -19,6 +23,8 @@ const configProviderProps = useNaiveConfigProvider({
   darkThemeOverrides: computed(() => ({
     common: setting.value?.darkThemeColor,
   })),
+  locale: computed(() => locale.value === 'zh-CN' ? zhCN : locale.value === 'en' ? enUS : null),
+  dateLocale: computed(() => locale.value === 'zh-CN' ? dateZhCN : locale.value === 'en' ? dateEnUS : null),
 })
 </script>
 

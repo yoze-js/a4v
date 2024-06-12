@@ -27,7 +27,7 @@ export interface UseNaiveConfigProviderOptions {
   /**
    * 对后代组件生效的日期语言对象，为 null 时会使用默认 dateEnUS，为 undefined 时会继承上级 n-config-provider
    */
-  dateLocale?: ConfigProviderProps['dateLocale']
+  dateLocale?: MaybeRefOrGetter<ConfigProviderProps['dateLocale']>
   /**
    * 是否禁用 inline css 主题变量，如果你不会频繁调整主题变量，并且需要 SSR 或者想让 devtools 看起来更干净，可以打开这个选项。注意，这个属性不是响应式的
    */
@@ -39,7 +39,7 @@ export interface UseNaiveConfigProviderOptions {
   /**
    * 对后代组件生效的语言对象，为 null 时会使用默认 enUS，为 undefined 时会继承上级 n-config-provider
    */
-  locale?: ConfigProviderProps['locale']
+  locale?: MaybeRefOrGetter<ConfigProviderProps['locale']>
   /**
    * n-config-provider 内部组件被卸载于其他位置的 DOM 的类名
    */
