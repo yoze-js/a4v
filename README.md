@@ -121,7 +121,7 @@ export const pageAnimateModeOptions = [
   { value: 'fade-bottom', label: '底部消退' },
 ]
 
-const { setting } = useThemeSetting({ initialValue: themeSetting })
+const { setting } = storeToRefs(useThemeStore())
 ```
 
 ### 主题模式
@@ -131,8 +131,11 @@ const { setting } = useThemeSetting({ initialValue: themeSetting })
 - 系统
 
 ```ts
-const mode = useColorMode()
-console.log(mode.value) // 'light' | 'dark' | 'auto'
+const themeStore = useThemeStore()
+
+themeStore.toggleMode('dark') // dark
+
+console.log(themeStore.mode.value) // 'light' | 'dark' | 'auto'
 ```
 
 ### 全局化配置
@@ -146,6 +149,8 @@ const configProviderProps = useNaiveConfigProvider()
 ```
 
 ### 脱离上下文的 API
+
+> ⚠️ 请在 router 注册后使用
 
 ```ts
 const { dialog } = useNaiveApi()
