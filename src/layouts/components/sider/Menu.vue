@@ -52,7 +52,6 @@ function traverseTree(nodes: any[]) {
       :collapsed-icon-size="18"
       :icon-size="18"
       :indent="23"
-      class="first:[&_.n-menu-item]:mt-0"
       @update:value="handleSelect"
     />
   </NScrollbar>
