@@ -18,6 +18,8 @@ a4v
 - 使用 Pinia 状态管理
 - UnoCSS 原子化 CSS 引擎
 - 各种图标集
+- 多语言支持
+- 主题配置
 
 ## 预配置
 
@@ -37,6 +39,7 @@ a4v
 - vite-plugin-vue-layouts - 布局系统
 - unplugin-auto-import - 自动导入插件
 - unplugin-vue-components - 自动导入组件
+- unplugin-vue-i18n - 多语言插件
 - vite-plugin-vue-devtools - 旨在增强 Vue 开发者体验的 Vite 插件
 - Pinia - 使用 Composition API 的轻便灵活的 Vue 状态管理
 - VueUse - 实用的 Composition API 工具合集
