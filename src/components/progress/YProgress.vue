@@ -8,36 +8,32 @@
 }
 
 #nprogress .bar {
-  background: var(--primary-color);
-
   position: fixed;
-  z-index: 1031;
   top: 0;
   left: 0;
-
+  z-index: 1031;
   width: 100%;
   height: 2px;
+  background: var(--primary-color);
 }
 
 /* Fancy blur effect */
 #nprogress .peg {
-  display: block;
   position: absolute;
   right: 0;
+  display: block;
   width: 100px;
   height: 100%;
   box-shadow:
     0 0 10px var(--primary-color),
     0 0 5px var(--primary-color);
+  transform: rotate(3deg) translate(0, -4px);
   opacity: 1;
-
-  -webkit-transform: rotate(3deg) translate(0px, -4px);
-  -ms-transform: rotate(3deg) translate(0px, -4px);
-  transform: rotate(3deg) translate(0px, -4px);
 }
 
 .nprogress-custom-parent {
   overflow: hidden;
+
   /* position: relative; */
 }
 
@@ -50,18 +46,21 @@
   position: absolute;
 }
 
-@-webkit-keyframes nprogress-spinner {
-  0% {
-    -webkit-transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-  }
-}
 @keyframes nprogress-spinner {
   0% {
     transform: rotate(0deg);
   }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes nprogress-spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
   100% {
     transform: rotate(360deg);
   }

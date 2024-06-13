@@ -36,7 +36,7 @@ const locale = computed(() => props.locale ?? zhCN)
           <NModalProvider>
             <NNotificationProvider>
               <NGlobalStyle v-if="globalStyle" />
-              <YProgress />
+              <YProgress v-if="progress" />
               <slot />
             </NNotificationProvider>
           </NModalProvider>
