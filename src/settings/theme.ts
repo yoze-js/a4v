@@ -8,11 +8,11 @@ export const themeSetting = {
     errorColor: '#D03050',
   },
   darkThemeColor: {
-    primaryColor: '#63e2b7',
-    infoColor: '#70c0e8',
-    successColor: '#63e2b7',
-    warningColor: '#f2c97d',
-    errorColor: '#e88080',
+    primaryColor: '#63E2B7',
+    infoColor: '#70C0E8',
+    successColor: '#63E2B7',
+    warningColor: '#F2C97D',
+    errorColor: '#E88080',
   },
   layoutMode: 'vertical',
   header: {

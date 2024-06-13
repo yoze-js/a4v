@@ -10,6 +10,7 @@ defineOptions({
 
 const props = withDefaults(defineProps<ConfigProviderProps>(), {
   globalStyle: true,
+  progress: true,
 })
 
 defineSlots<{
@@ -25,7 +26,7 @@ const locale = computed(() => props.locale ?? zhCN)
 
 <template>
   <NConfigProvider
-    v-bind="omit(props, ['globalStyle'])"
+    v-bind="omit(props, ['globalStyle', 'progress'])"
     :date-locale
     :locale
   >
@@ -35,6 +36,7 @@ const locale = computed(() => props.locale ?? zhCN)
           <NModalProvider>
             <NNotificationProvider>
               <NGlobalStyle v-if="globalStyle" />
+              <YProgress />
               <slot />
             </NNotificationProvider>
           </NModalProvider>

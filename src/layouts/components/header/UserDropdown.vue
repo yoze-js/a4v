@@ -1,4 +1,8 @@
 <script setup lang="ts">
+const dialog = useDialog()
+const { logout } = useAuthStore()
+
+const { userInfo } = storeToRefs(useAuthStore())
 const { isDark, setting } = storeToRefs(useThemeStore())
 
 const options = [
@@ -15,14 +19,31 @@ const options = [
     label: '退出登录',
     icon: () => renderIcon('i-icon-park-outline-logout'),
   },
-
 ]
+
+function handleSelect(key: string) {
+  switch (key) {
+    case 'logout':
+      dialog.warning({
+        autoFocus: false,
+        title: '提示',
+        content: '是否确认退出登录？',
+        positiveText: '确认',
+        negativeText: '取消',
+        onPositiveClick: () => {
+          logout()
+        },
+      })
+      break
+  }
+}
 </script>
 
 <template>
   <NDropdown
     :options="options"
     trigger="click"
+    @select="handleSelect"
   >
     <div
       :class="{
@@ -36,7 +57,7 @@ const options = [
         class="mr-8px h-28px min-w-28px w-28px bg-transparent"
       />
       <NEllipsis>
-        超级管理员
+        {{ userInfo?.nickName }}
       </NEllipsis>
     </div>
   </NDropdown>
