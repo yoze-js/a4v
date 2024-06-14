@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import HeaderButton from '../header/HeaderButton.vue'
+import HeaderButton from './HeaderButton.vue'
 
 const { setting } = storeToRefs(useThemeStore())
 const collapsed = computed(() => setting.value.sider.collapsed)

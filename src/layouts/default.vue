@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import Logo from './components/sider/Logo.vue'
-import Menu from './components/sider/Menu.vue'
-import Breadcrumb from './components/header/Breadcrumb.vue'
-import CollapseButton from './components/header/CollapseButton.vue'
-import GithubButton from './components/header/GithubButton.vue'
-import LocaleDropdown from './components/header/LocaleDropdown.vue'
-import FullscreenButton from './components/header/FullscreenButton.vue'
-import ThemeModeButton from './components/header/ThemeModeButton.vue'
-import ThemeSettingButton from './components/header/ThemeSettingButton.vue'
-import UserDropdown from './components/header/UserDropdown.vue'
+import Logo from './components/Logo.vue'
+import Menu from './components/Menu.vue'
+import Breadcrumb from './components/Breadcrumb.vue'
+import CollapseButton from './components/CollapseButton.vue'
+import GithubButton from './components/GithubButton.vue'
+import LocaleDropdown from './components/LocaleDropdown.vue'
+import FullscreenButton from './components/FullscreenButton.vue'
+import ThemeModeButton from './components/ThemeModeButton.vue'
+import ThemeSettingButton from './components/ThemeSettingButton.vue'
+import UserDropdown from './components/UserDropdown.vue'
 
 const { isDark, setting } = storeToRefs(useThemeStore())
 </script>
@@ -38,21 +38,24 @@ const { isDark, setting } = storeToRefs(useThemeStore())
   >
     <template #sider>
       <div class="wh-full flex flex-col">
-        <Logo />
+        <Logo v-if="setting.layoutMode === 'vertical'" />
         <Menu />
       </div>
     </template>
 
     <template #header>
       <div class="wh-full flex items-center justify-between">
-        <NFlex
-          align="center"
-          :class="setting.sider.inverted ? 'ml-24px' : 'ml-0'"
-          class="transition-300 transition-property-margin"
-        >
-          <CollapseButton />
-          <Breadcrumb />
-        </NFlex>
+        <div class="flex-y-center">
+          <Logo v-if="setting.layoutMode !== 'vertical'" />
+          <NFlex
+            align="center"
+            :class="setting.layoutMode === 'vertical' && (setting.sider.inverted ? 'ml-24px' : 'ml-0')"
+            class="transition-300 transition-property-margin"
+          >
+            <CollapseButton v-if="setting.layoutMode !== 'horizontal'" />
+            <Breadcrumb />
+          </NFlex>
+        </div>
         <NFlex
           align="center"
           class="mr-24px"

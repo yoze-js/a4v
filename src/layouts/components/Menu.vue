@@ -52,6 +52,7 @@ function traverseTree(nodes: any[]) {
       :collapsed-icon-size="18"
       :icon-size="18"
       :indent="23"
+      :inverted="setting.sider.inverted"
       @update:value="handleSelect"
     />
   </NScrollbar>
