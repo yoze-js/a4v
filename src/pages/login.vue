@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import loginBgSvg from '~/assets/login-bg.svg?raw'
+
 definePage({
   meta: {
     layout: 'blank',
@@ -6,6 +8,7 @@ definePage({
   },
 })
 
+const themeVars = useThemeVars()
 const { login } = useAuthStore()
 const formRef = ref()
 const model = ref({
@@ -91,11 +94,12 @@ async function handleLogin() {
       </NForm>
     </div>
 
-    <div class="absolute left-0 top-0 h-full w-90vw rotate-180 -scale-y-100">
-      <img
-        src="/public/login-bg.svg"
-        class="wh-full"
-      >
+    <div class="absolute left-0 top-0 wh-full rotate-180 -scale-y-100">
+      <div
+        class="[&_svg]:wh-full wh-full"
+        :style="{ fill: themeVars.primaryColor }"
+        v-html="loginBgSvg"
+      />
     </div>
   </div>
 </template>

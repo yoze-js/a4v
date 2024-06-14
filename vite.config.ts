@@ -59,6 +59,7 @@ export default defineConfig({
             'useMessage',
             'useNotification',
             'useLoadingBar',
+            'useThemeVars',
           ],
         },
       ],
