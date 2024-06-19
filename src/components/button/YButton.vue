@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { NButton } from 'naive-ui'
 import type { VNode } from 'vue'
-import { useToggle } from '@vueuse/core'
 import { isBoolean, omit } from 'lodash-es'
 import type { ButtonProps } from './types'
 
