@@ -32,7 +32,7 @@ function goHome() {
     >
     <div
       v-if="setting.layoutMode === 'horizontal' || !setting.sider.collapsed"
-      class="ml-8px text-20px font-700"
+      class="ml-8px whitespace-nowrap text-20px font-700"
     >
       a4v
     </div>
