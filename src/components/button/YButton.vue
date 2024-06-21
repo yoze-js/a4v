@@ -7,7 +7,11 @@ defineOptions({
   name: 'YButton',
 })
 
-const props = withDefaults(defineProps<ButtonProps>(), {})
+const props = withDefaults(defineProps<ButtonProps>(), {
+  bordered: true,
+  focusable: true,
+  keyboard: true,
+})
 
 defineSlots<{
   /**
