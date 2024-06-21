@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { omit } from 'lodash-es'
-import { formatLength } from '../_utils/css/format-length'
 import type { CardSlots } from '../card/types'
 import type { DrawerProps } from './types'
 
@@ -9,6 +8,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<DrawerProps>(), {
+  action: true,
   autoFocus: false,
   blockScroll: true,
   closable: true,

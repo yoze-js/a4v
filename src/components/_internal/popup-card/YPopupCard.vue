@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CardSlots } from '../../card/types'
-import { formatLength } from '../../_utils/css/format-length'
 import type { PopupCardProps } from './types'
 
 defineOptions({
@@ -8,6 +7,7 @@ defineOptions({
 })
 
 const props = withDefaults(defineProps<PopupCardProps>(), {
+  action: true,
   bordered: false,
   closable: true,
   contentStyle: () => ({
