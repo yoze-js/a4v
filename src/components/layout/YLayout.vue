@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { CSSProperties, VNode } from 'vue'
-import { formatLength } from '../_utils/css/format-length'
 import type { LayoutProps } from './types'
 
 defineOptions({
