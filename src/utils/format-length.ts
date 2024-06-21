@@ -1,3 +1,4 @@
+// eslint-disable-next-line regexp/no-unused-capturing-group
 const pureNumberRegex = /^(\d|\.)+$/
 const numberRegex = /(\d|\.)+/
 
