@@ -5,10 +5,16 @@ definePage({
     icon: 'i-icon-park-outline-user',
   },
 })
+
+const list = [{ name: 'user', tab: '用户管理' }]
 </script>
 
 <template>
-  <div>
-    123
+  <div class="wh-full flex p-24px">
+    <YPageCard :list="list">
+      <template #tab-user>
+        user
+      </template>
+    </YPageCard>
   </div>
 </template>
