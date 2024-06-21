@@ -47,7 +47,7 @@ export const menus = [
       {
         key: '/system/menu',
         label: '菜单管理',
-        icon: 'i-icon-park-outline-list-one',
+        icon: 'i-icon-park-outline-list-checkbox',
       },
       {
         key: '/system/user',
