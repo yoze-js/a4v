@@ -1,12 +1,7 @@
 <script setup lang="ts">
-import { omit } from 'lodash-es'
 import type { TableSearchProps } from './types'
 
-const props = withDefaults(defineProps<TableSearchProps>(), {
-  clearable: true,
-  keyword: 'keyword',
-  placeholder: '请输入关键词',
-})
+withDefaults(defineProps<TableSearchProps>(), {})
 
 const emits = defineEmits<{
   search: [value: any]
@@ -18,6 +13,10 @@ const [show, toggleShow] = useToggle()
 
 function handleOpen() {
   toggleShow(true)
+}
+
+function handleClose() {
+  toggleShow(false)
 }
 
 function handleReset() {
@@ -33,28 +32,60 @@ function handleSearch() {
 </script>
 
 <template>
-  <div>
-    <NInputGroup>
-      <NInput
-        v-bind="omit(props, ['value'])"
-        v-model:value="value[keyword]"
-      >
-        <template #prefix>
-          <div class="i-icon-park-outline-search mr-4px" />
-        </template>
-      </NInput>
-      <NButton @click="handleOpen">
-        <div class="i-icon-park-outline-filter" />
-      </NButton>
-    </NInputGroup>
+  <div class="w-full">
+    <NFlex align="center" :wrap="false">
+      <slot />
+
+      <div v-if="filter">
+        <NButton
+          v-if="filter === 'drawer'"
+          class="!w-34px !p-0"
+          @click="handleOpen"
+        >
+          <div class="i-icon-park-outline-filter" />
+        </NButton>
+        <PopoverButton
+          v-else-if="filter === 'popover'"
+          :show="show"
+          :width="350"
+          content-class="!pt-16px !px-16px"
+          footer-class="!border-t-0 !pb-16px"
+          v-bind="popover"
+          @click="handleOpen"
+          @clickoutside="handleClose"
+        >
+          <template #trigger>
+            <div class="i-icon-park-outline-filter" />
+          </template>
+          <slot name="filter" />
+
+          <template #footer>
+            <NFlex justify="end">
+              <YButton
+                @click="handleReset"
+              >
+                重置
+              </YButton>
+              <YButton
+                type="primary"
+                @click="handleSearch"
+              >
+                搜索
+              </YButton>
+            </NFlex>
+          </template>
+        </PopoverButton>
+      </div>
+    </NFlex>
 
     <YDrawer
+      v-if="filter === true || filter === 'drawer'"
       v-model:show="show"
-      title="搜索"
+      title="搜索条件"
       :width="350"
+      v-bind="drawer"
     >
-      搜索条件
-
+      <slot name="filter" />
       <template #footer>
         <NFlex justify="end">
           <YButton

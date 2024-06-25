@@ -69,7 +69,7 @@ async function handleClick(e: MouseEvent) {
 
 <template>
   <NButton
-    v-bind="omit(props, ['onClick'])"
+    v-bind="omit(props, ['dialog', 'onClick'])"
     :loading
     @click.stop="handleClick"
   >

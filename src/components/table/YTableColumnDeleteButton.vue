@@ -4,6 +4,8 @@ import type { ButtonProps } from '../button/types'
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   type: 'error',
+  tertiary: true,
+  size: 'small',
 })
 
 const dialog = computed(() => {
@@ -22,6 +24,7 @@ const dialog = computed(() => {
     v-bind="props"
     :dialog
   >
-    <slot />
+    <slot v-if="$slots.default" />
+    <span v-else>删除</span>
   </YButton>
 </template>

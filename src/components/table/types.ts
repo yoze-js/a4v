@@ -1,15 +1,16 @@
-import type { DataTableProps as NDataTableProps } from 'naive-ui'
+import type { PopoverProps } from 'naive-ui'
+import type { DataTableProps } from 'naive-ui/es/data-table/src/interface'
+import type { DrawerProps } from '../drawer/types'
 
 export interface TableProps {
   columns?: any[]
-  data?: NDataTableProps['data']
-  loading?: NDataTableProps['loading']
-  remote?: NDataTableProps['remote']
+  pagination?: DataTableProps['pagination']
+  request: (params?: any) => Promise<any>
 }
 
 export interface TableSearchProps {
   value: any
-  keyword?: string
-  clearable?: boolean
-  placeholder?: string
+  filter?: 'drawer' | 'popover' | boolean
+  popover?: PopoverProps
+  drawer?: DrawerProps
 }
