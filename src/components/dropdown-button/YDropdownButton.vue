@@ -4,10 +4,6 @@ import { omit } from 'lodash-es'
 import type { DropdownOption } from 'naive-ui'
 import type { DropdownButtonProps } from '../dropdown-button/types'
 
-defineOptions({
-  name: 'YButton',
-})
-
 const props = withDefaults(defineProps<DropdownButtonProps>(), {})
 
 const emits = defineEmits<{

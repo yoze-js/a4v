@@ -51,7 +51,7 @@ const items = [
   },
 ]
 
-function fetchData(): Promise<any> {
+function request(): Promise<any> {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve([
@@ -112,7 +112,7 @@ function handleSelect(key: string | number, option: any) {
           ref="tableRef"
           :columns
           :pagination="false"
-          :request="fetchData"
+          :request
         >
           <template #action>
             <YTableAddButton @click="handleAdd">
@@ -167,7 +167,7 @@ function handleSelect(key: string | number, option: any) {
 
           <template #column-action="{ row }">
             <YTableColumnEditButton @click="handleEdit(row)" />
-            <YTableColumnDeleteButton :on-positive-click="() => handleDelete(row)" />
+            <YTableColumnDeleteButton @positive-click="() => handleDelete(row)" />
             <YTableColumnMoreButton
               :dropdown="{
                 options: [

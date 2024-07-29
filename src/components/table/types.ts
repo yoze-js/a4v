@@ -6,6 +6,7 @@ export interface TableProps {
   columns?: any[]
   pagination?: DataTableProps['pagination']
   request: (params?: any) => Promise<any>
+  useTool?: boolean
 }
 
 export interface TableSearchProps {

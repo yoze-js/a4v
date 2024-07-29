@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import type { PageCardProps } from './types'
 
-defineOptions({
-  name: 'YTabsCard',
-})
-
 defineProps<PageCardProps>()
 
 const value = defineModel<any>('value')

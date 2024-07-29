@@ -3,10 +3,6 @@ import { omit } from 'lodash-es'
 import type { CardSlots } from '../card/types'
 import type { DrawerProps } from './types'
 
-defineOptions({
-  name: 'YDrawer',
-})
-
 const props = withDefaults(defineProps<DrawerProps>(), {
   action: true,
   autoFocus: false,

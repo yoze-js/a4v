@@ -1,14 +1,10 @@
 <script setup lang="tsx">
 import type { DataTableBaseColumn } from 'naive-ui'
 import { NFlex } from 'naive-ui'
-import { isBoolean } from 'lodash-es'
+import { cloneDeep, isBoolean } from 'lodash-es'
 import type { TableProps } from './types'
 import YTableColumnIcon from './YTableColumnIcon.vue'
 import YTableColumnDate from './YTableColumnDate.vue'
-
-defineOptions({
-  name: 'YTable',
-})
 
 const props = withDefaults(defineProps<TableProps>(), {
   columns: () => [],
@@ -18,6 +14,7 @@ const props = withDefaults(defineProps<TableProps>(), {
     showQuickJumper: true,
     showSizePicker: true,
   }),
+  useTool: true,
 })
 
 const slots = defineSlots<{
@@ -26,14 +23,23 @@ const slots = defineSlots<{
 }>()
 
 const tableRef = ref()
-const { toggle: toggleFullscreen } = useFullscreen(tableRef)
+const { isFullscreen, toggle: toggleFullscreen } = useFullscreen(tableRef)
 
 const columnSlotKeys = computed(() => {
   return Object.keys(slots).filter(key => !['action', 'search'].includes(key))
 })
+const columnsRef = ref(props.columns)
 const columns = computed(() => {
-  for (const column of props.columns) {
-    const { key, component, componentProps, flex } = column
+  const columns = cloneDeep(columnsRef.value)
+  const result: any[] = []
+  for (const column of columns) {
+    const { key, component, componentProps, flex, hidden } = column
+
+    if (hidden) {
+      continue
+    }
+
+    const data: any = { ...column }
 
     let render: DataTableBaseColumn['render']
 
@@ -68,7 +74,7 @@ const columns = computed(() => {
     }
 
     if (flex) {
-      column.render = (row: any, index: number) => {
+      data.render = (row: any, index: number) => {
         return (
           <NFlex
             align="center"
@@ -80,10 +86,12 @@ const columns = computed(() => {
       }
     }
     else {
-      column.render = render
+      data.render = render
     }
+
+    result.push(data)
   }
-  return props.columns
+  return result
 })
 const data = ref<any>([])
 const [loading, toggleLoading] = useToggle()
@@ -141,33 +149,37 @@ defineExpose({
 <template>
   <div
     ref="tableRef"
-    class="wh-full flex flex-col"
+    :class="{ 'px-24px py-20px': isFullscreen }"
+    class="wh-full flex flex-col bg-#fff dark:bg-#18181c"
   >
     <NFlex
       align="center"
       justify="space-between"
       class="mb-12px"
     >
-      <div class="flex-y-center">
+      <NFlex
+        :wrap="false"
+        align="center"
+      >
         <slot name="action" />
-      </div>
-      <div class="flex-y-center">
+      </NFlex>
+      <NFlex align="center">
         <NFlex align="center">
           <slot name="search" />
         </NFlex>
         <NDivider
-          v-if="slots.search"
+          v-if="slots.search && useTool"
           vertical
-          class="!mx-16px"
+          class="!mx-8px"
         />
-        <NFlex align="center">
-          <YTableTool
-            :columns
-            @refresh="handleRefresh"
-            @fullscreen="handleFullscreen"
-          />
-        </NFlex>
-      </div>
+        <YTableTool
+          v-if="useTool"
+          v-model:columns="columnsRef"
+          :fullscreen="isFullscreen"
+          @refresh="handleRefresh"
+          @fullscreen="handleFullscreen"
+        />
+      </NFlex>
     </NFlex>
 
     <NDataTable

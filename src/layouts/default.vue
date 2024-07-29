@@ -48,6 +48,7 @@ const { isDark, setting } = storeToRefs(useThemeStore())
         <div class="flex-y-center">
           <Logo v-if="setting.layoutMode !== 'vertical'" />
           <NFlex
+            :wrap="false"
             align="center"
             :class="setting.layoutMode === 'vertical' && (setting.sider.inverted ? 'ml-24px' : 'ml-0')"
             class="transition-300 transition-property-margin"
@@ -57,6 +58,7 @@ const { isDark, setting } = storeToRefs(useThemeStore())
           </NFlex>
         </div>
         <NFlex
+          :wrap="false"
           align="center"
           class="mr-24px"
         >

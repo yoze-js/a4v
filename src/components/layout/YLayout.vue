@@ -2,10 +2,6 @@
 import type { CSSProperties, VNode } from 'vue'
 import type { LayoutProps } from './types'
 
-defineOptions({
-  name: 'YLayout',
-})
-
 const props = withDefaults(defineProps<LayoutProps>(), {
   siderCollapsedWidth: 64,
   footerHeight: 64,

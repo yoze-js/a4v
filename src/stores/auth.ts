@@ -3,7 +3,6 @@ import dayjs from 'dayjs'
 
 export const useAuthStore = defineStore('a4v-auth-store', () => {
   const router = useRouter()
-  const { message } = useNaiveDiscreteApi()
 
   const lastUserGetTime = ref(0)
 
@@ -19,7 +18,7 @@ export const useAuthStore = defineStore('a4v-auth-store', () => {
       lastUserGetTime.value = dayjs().valueOf()
     }
     catch (error: any) {
-      message.error(error)
+      window.$message.error(error)
     }
   }
 
@@ -37,7 +36,7 @@ export const useAuthStore = defineStore('a4v-auth-store', () => {
       router.replace('/login')
     }
     catch (error: any) {
-      message.error(error)
+      window.$message.error(error)
     }
   }
 
@@ -47,7 +46,7 @@ export const useAuthStore = defineStore('a4v-auth-store', () => {
       router.push('/')
     }
     catch (error: any) {
-      message.error(error)
+      window.$message.error(error)
     }
   }
 

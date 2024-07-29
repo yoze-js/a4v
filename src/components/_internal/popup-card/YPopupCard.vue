@@ -2,10 +2,6 @@
 import type { CardSlots } from '../../card/types'
 import type { PopupCardProps } from './types'
 
-defineOptions({
-  name: 'YPopupCard',
-})
-
 const props = withDefaults(defineProps<PopupCardProps>(), {
   action: true,
   bordered: false,

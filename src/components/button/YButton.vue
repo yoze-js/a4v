@@ -3,10 +3,6 @@ import type { VNode } from 'vue'
 import { isBoolean, omit } from 'lodash-es'
 import type { ButtonProps } from './types'
 
-defineOptions({
-  name: 'YButton',
-})
-
 const props = withDefaults(defineProps<ButtonProps>(), {
   bordered: true,
   focusable: true,
